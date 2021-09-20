@@ -1,21 +1,16 @@
 import styled, { DefaultTheme } from "styled-components";
-import { space, layout, variant } from "styled-system";
-import { scaleVariants, styleVariants } from "./theme";
-import { BaseButtonProps } from "./types";
+import { space } from "styled-system";
+import { ButtonProps, ButtonThemeVariant, variants } from "./types";
 
-interface ThemedButtonProps extends BaseButtonProps {
+type ThemedProps = {
   theme: DefaultTheme;
-}
+} & ButtonProps;
 
-interface TransientButtonProps extends ThemedButtonProps {
-  $isLoading?: boolean;
-}
-
-const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
-  if ($isLoading === true) {
+const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
+  if (isLoading === true) {
     return `
       &:disabled,
-      &.pancake-button--disabled {
+      &.button--disabled {
         cursor: not-allowed;
       }
     `;
@@ -23,7 +18,7 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
 
   return `
     &:disabled,
-    &.pancake-button--disabled {
+    &.button--disabled {
       background-color: ${theme.colors.backgroundDisabled};
       border-color: ${theme.colors.backgroundDisabled};
       box-shadow: none;
@@ -33,53 +28,68 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
   `;
 };
 
-/**
- * This is to get around an issue where if you use a Link component
- * React will throw a invalid DOM attribute error
- * @see https://github.com/styled-components/styled-components/issues/135
- */
+const removePointerEvents = ({ disabled, as }: ThemedProps) => {
+  if (disabled && as && as !== "button") {
+    return `
+      pointer-events: none;
+    `;
+  }
 
-const getOpacity = ({ $isLoading = false }: TransientButtonProps) => {
-  return $isLoading ? ".5" : "1";
+  return "";
 };
 
-const StyledButton = styled.button<BaseButtonProps>`
+const getButtonVariantProp = (prop: keyof ButtonThemeVariant) => ({
+  theme,
+  variant = variants.PRIMARY,
+}: ThemedProps) => {
+  return theme.button[variant][prop];
+};
+
+const StyledButton = styled.button<ButtonProps>`
   align-items: center;
-  border: 0;
+  background-color: ${getButtonVariantProp("background")};
+  border: ${getButtonVariantProp("border")};
   border-radius: 16px;
-  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
+  box-shadow: ${getButtonVariantProp("boxShadow")};
+  color: ${getButtonVariantProp("color")};
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
-  letter-spacing: 0.03em;
+  /* max-content instead of auto for Safari fix */
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "max-content")};
+  height: ${({ size }) => (size === "sm" ? "32px" : "48px")};
   line-height: 1;
-  opacity: ${getOpacity};
+  letter-spacing: 0.03em;
+  justify-content: center;
   outline: 0;
-  transition: background-color 0.2s, opacity 0.2s;
+  padding: ${({ size }) => (size === "sm" ? "0 16px" : "0 24px")};
+  transition: background-color 0.2s;
+  opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
-  &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
-    opacity: 0.65;
+  &:hover:not(:disabled):not(.button--disabled):not(:active) {
+    background-color: ${getButtonVariantProp("backgroundHover")};
+    border-color: ${getButtonVariantProp("borderColorHover")};
   }
 
-  &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
-    opacity: 0.85;
-    transform: translateY(1px);
-    box-shadow: none;
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.secondary};
+  }
+
+  &:active {
+    background-color: ${getButtonVariantProp("backgroundActive")};
+    box-shadow: ${getButtonVariantProp("boxShadowActive")};
   }
 
   ${getDisabledStyles}
-  ${variant({
-    prop: "scale",
-    variants: scaleVariants,
-  })}
-  ${variant({
-    variants: styleVariants,
-  })}
-  ${layout}
+  ${removePointerEvents}
   ${space}
 `;
+
+StyledButton.defaultProps = {
+  fullWidth: false,
+  type: "button",
+};
 
 export default StyledButton;

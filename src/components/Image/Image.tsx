@@ -5,50 +5,46 @@ import Wrapper from "./Wrapper";
 import { ImageProps } from "./types";
 
 const StyledImage = styled.img`
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  max-width: 100%;
 `;
 
 const Placeholder = styled.div`
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
 `;
 
-const Image: React.FC<ImageProps> = ({ src, alt, width, height, ...props }) => {
-  const imgRef = useRef<HTMLDivElement>(null);
+const Image: React.FC<ImageProps> = ({ src, alt, ...otherProps }) => {
+  const imgRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    let observer: IntersectionObserver;
-
-    if (imgRef.current) {
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const { isIntersecting } = entry;
-          if (isIntersecting) {
-            setIsLoaded(true);
-            observer.disconnect();
-          }
-        });
-      }, observerOptions);
-      observer.observe(imgRef.current);
-    }
+    const img = (imgRef.current as unknown) as HTMLImageElement;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const { isIntersecting } = entry;
+        if (isIntersecting) {
+          setIsLoaded(true);
+          observer.disconnect();
+        }
+      });
+    }, observerOptions);
+    observer.observe(img);
 
     return () => {
-      if (observer) {
-        observer.disconnect();
-      }
+      observer.disconnect();
     };
   }, [src]);
 
   return (
-    <Wrapper ref={imgRef} height={height} width={width} {...props}>
+    <Wrapper ref={imgRef} {...otherProps}>
       {isLoaded ? <StyledImage src={src} alt={alt} /> : <Placeholder />}
     </Wrapper>
   );

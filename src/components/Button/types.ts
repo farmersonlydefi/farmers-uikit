@@ -1,11 +1,10 @@
-import { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
-import { Link } from "react-router-dom";
-import { LayoutProps, SpaceProps } from "styled-system";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import { Link, LinkProps } from "react-router-dom";
+import { SpaceProps } from "styled-system";
 
-export const scales = {
-  MD: "md",
+export const sizes = {
   SM: "sm",
-  XS: "xs",
+  MD: "md",
 } as const;
 
 export const variants = {
@@ -18,33 +17,36 @@ export const variants = {
   SUCCESS: "success",
 } as const;
 
-export type Scale = typeof scales[keyof typeof scales];
-export type Variant = typeof variants[keyof typeof variants];
+export type Sizes = typeof sizes[keyof typeof sizes];
+export type Variants = typeof variants[keyof typeof variants];
 
-/**
- * @see https://www.benmvp.com/blog/polymorphic-react-components-typescript/
- */
-export type AsProps<E extends ElementType = ElementType> = {
-  as?: E;
-};
+type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement> | AnchorHTMLAttributes<HTMLAnchorElement> | LinkProps;
 
-export type MergeProps<E extends ElementType> = AsProps<E> & Omit<ComponentProps<E>, keyof AsProps>;
-
-export type PolymorphicComponentProps<E extends ElementType, P> = P & MergeProps<E>;
-
-export type PolymorphicComponent<P, D extends ElementType = "button"> = <E extends ElementType = D>(
-  props: PolymorphicComponentProps<E, P>
-) => ReactElement | null;
-
-export interface BaseButtonProps extends LayoutProps, SpaceProps {
-  as?: "a" | "button" | typeof Link;
-  external?: boolean;
-  isLoading?: boolean;
-  scale?: Scale;
-  variant?: Variant;
-  disabled?: boolean;
+export type ButtonProps = {
+  variant?: Variants;
+  size?: Sizes;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
-}
+  fullWidth?: boolean;
+  as?: "a" | "button" | typeof Link;
+  href?: string;
+  external?: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
+} & ButtonTypes &
+  SpaceProps;
 
-export type ButtonProps<P extends ElementType = "button"> = PolymorphicComponentProps<P, BaseButtonProps>;
+export type ButtonThemeVariant = {
+  background: string;
+  backgroundActive: string;
+  backgroundHover: string;
+  border: string | number;
+  borderColorHover: string;
+  boxShadow: string;
+  boxShadowActive: string;
+  color: string;
+};
+
+export type ButtonTheme = {
+  [key in Variants]: ButtonThemeVariant;
+};

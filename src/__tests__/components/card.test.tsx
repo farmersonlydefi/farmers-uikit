@@ -12,45 +12,21 @@ it("renders correctly", () => {
   );
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
-      .c0 {
-      background-color: #FFFFFF;
-      border: 0px 2px 12px -8px rgba(25,19,38,0.1),0px 1px 1px rgba(25,19,38,0.05);
-      border-radius: 24px;
-      box-shadow: 0px 2px 12px -8px rgba(25,19,38,0.1),0px 1px 1px rgba(25,19,38,0.05);
-      color: #280D5F;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .c2 {
-      padding: 24px;
-    }
-
-    .c1 {
-      background: linear-gradient(111.68deg,#F2ECF2 0%,#E8F2F6 100%);
-      padding: 24px;
-    }
-
-    .c3 {
-      border-top: 1px solid #E7E3EB;
-      padding: 24px;
-    }
-
-    <div
-        class="c0"
+      <div
+        class="sc-bdfBwQ gppsKf"
       >
         <div
-          class="c1"
+          class="sc-dlfnbm bwJRqk"
         >
           Header
         </div>
         <div
-          class="c2"
+          class="sc-gsTCUz iMfsSF"
         >
           Body
         </div>
         <div
-          class="c3"
+          class="sc-hKgILt gKiPqy"
         >
           Footer
         </div>

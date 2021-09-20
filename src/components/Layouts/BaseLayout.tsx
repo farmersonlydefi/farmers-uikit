@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Grid from "../Box/Grid";
 
-const GridLayout = styled(Grid)`
+const GridLayout = styled.div`
+  display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 16px;
   ${({ theme }) => theme.mediaQueries.sm} {

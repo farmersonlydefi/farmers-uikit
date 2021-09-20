@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
-import Flex from "../Box/Flex";
+import Flex from "../Flex/Flex";
 import Dropdown from "./Dropdown";
 
 export default {

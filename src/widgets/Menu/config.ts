@@ -1,20 +1,3 @@
-import { LinkStatus } from "./types";
-
-export const status = {
-  LIVE: <LinkStatus>{
-    text: "LIVE",
-    color: "failure",
-  },
-  SOON: <LinkStatus>{
-    text: "SOON",
-    color: "warning",
-  },
-  NEW: <LinkStatus>{
-    text: "NEW",
-    color: "success",
-  },
-};
-
 export const links = [
   {
     label: "Home",
@@ -27,11 +10,11 @@ export const links = [
     items: [
       {
         label: "Exchange",
-        href: "https://exchange.pancakeswap.finance",
+        href: "https://quickswap.exchange/",
       },
       {
         label: "Liquidity",
-        href: "https://exchange.pancakeswap.finance/#/pool",
+        href: "https://quickswap.exchange/#/pool",
       },
     ],
   },
@@ -39,14 +22,13 @@ export const links = [
     label: "Farms",
     icon: "FarmIcon",
     href: "/farms",
-    status: status.LIVE,
   },
   {
     label: "Pools",
     icon: "PoolIcon",
     href: "/syrup",
   },
-  {
+/*  {
     label: "Lottery",
     icon: "TicketIcon",
     href: "/lottery",
@@ -57,20 +39,12 @@ export const links = [
     href: "/nft",
   },
   {
-    label: "Team Battle",
-    icon: "TeamBattleIcon",
-    href: "/competition",
-    status: status.SOON,
-  },
-  {
     label: "Profile & Teams",
     icon: "GroupsIcon",
-    status: status.LIVE,
     items: [
       {
         label: "Leaderboard",
-        href: "/teams",
-        status: status.NEW,
+        href: "/",
       },
       {
         label: "YourProfile",
@@ -114,27 +88,27 @@ export const links = [
         href: "/ifo/history",
       },
     ],
-  },
+  }, */
   {
     label: "More",
     icon: "MoreIcon",
     items: [
-      {
-        label: "Voting",
-        href: "https://voting.pancakeswap.finance",
-      },
+      // {
+      //   label: "Voting",
+      //   href: "https://voting.pancakeswap.finance",
+      // },
       {
         label: "Github",
-        href: "https://github.com/polydaedalus",
+        href: "https://github.com/goosefinance",
       },
-      {
-        label: "Docs",
-        href: "https://docs.pancakeswap.finance",
-      },
-      {
-        label: "Blog",
-        href: "https://pancakeswap.medium.com",
-      },
+      // {
+      //  label: "Docs",
+      //  href: "https://goosedefi.gitbook.io/goose-finance/",
+      // },
+      // {
+      //  label: "Blog",
+      //  href: "https://goosefinance.medium.com/",
+      // },
     ],
   },
 ];
@@ -145,16 +119,25 @@ export const socials = [
     icon: "TelegramIcon",
     items: [
       {
-        label: "English",
-        href: "http://t.me/PlatinumFinanceOfficial",
+        label: "Group",
+        href: "http://t.me/bloodyswap",
+      },
+	  {
+        label: "Announcements",
+        href: "http://t.me/bloodyswapann",
       },
     ],
   },
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/PlatinumPolygon",
-  },  
+    href: "https://twitter.com/bloodyswap",
+  },
+  /* {
+    label: "Reddit",
+    icon: "RedditIcon",
+    href: "https://www.reddit.com/r//",
+  }, */
 ];
 
 export const MENU_HEIGHT = 64;
