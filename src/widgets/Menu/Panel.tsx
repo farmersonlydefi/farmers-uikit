@@ -40,7 +40,7 @@ const Panel: React.FC<Props> = (props) => {
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} /> {/* XXXXX RUGDOC APEOCLOCK BADGE */}
-      <a target="_blank" rel="noreferrer" href="https://www.apeoclock.com/launch/bloodyswap-farm-launch/"><img src="https://rugdoc.io/assets/2021/06/rugdoc-review-badge-with-glow.png" /></a>
+      <a target="_blank" rel="noreferrer" href="https://www.apeoclock.com/launch/farmersonly-farm-launch/"><img src="https://rugdoc.io/assets/2021/06/rugdoc-review-badge-with-glow.png" /></a>
       <PanelFooter {...props} />
     </StyledPanel>
   );

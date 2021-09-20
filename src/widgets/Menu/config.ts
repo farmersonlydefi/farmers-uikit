@@ -120,18 +120,18 @@ export const socials = [
     items: [
       {
         label: "Group",
-        href: "http://t.me/bloodyswap",
+        href: "http://t.me/FarmersOnlyDeFi",
       },
 	  {
         label: "Announcements",
-        href: "http://t.me/bloodyswapann",
+        href: "http://t.me/FarmersOnlyAnn",
       },
     ],
   },
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/bloodyswap",
+    href: "https://twitterFarmersOnlyDeFiyswap",
   },
   /* {
     label: "Reddit",
