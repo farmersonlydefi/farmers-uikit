@@ -2,10 +2,10 @@ import React from "react";
 import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
 import LinkExternal from "../../components/Link/LinkExternal";
-import Flex from "../../components/Flex/Flex";
+import Flex from "../../components/Box/Flex";
 import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
-import { localStorageKey } from "./config";
+import { connectorLocalStorageKey } from "./config";
 
 interface Props {
   account: string;
@@ -23,18 +23,18 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
       {account}
     </Text>
     <Flex mb="32px">
-    <LinkExternal small href={`https://explorer-mainnet.maticvigil.com/address/${account}`} mr="16px">
-        View on Matic Explorer
+      <LinkExternal small href={`https://polygonscan.com/address/${account}`} mr="16px">
+        View on PolygonScan
       </LinkExternal>
       <CopyToClipboard toCopy={account}>Copy Address</CopyToClipboard>
     </Flex>
     <Flex justifyContent="center">
       <Button
-        size="sm"
+        scale="sm"
         variant="secondary"
         onClick={() => {
           logout();
-          window.localStorage.removeItem(localStorageKey);
+          window.localStorage.removeItem(connectorLocalStorageKey);
           onDismiss();
           window.location.reload();
         }}

@@ -1,8 +1,8 @@
-# 🩸 BloodySwap UIkit
+# 🥞 Pancake UIkit
 
 [![Version](https://img.shields.io/npm/v/@pancakeswap-libs/uikit)](https://www.npmjs.com/package/@pancakeswap-libs/uikit) [![Size](https://img.shields.io/bundlephobia/min/@pancakeswap-libs/uikit)](https://www.npmjs.com/package/@pancakeswap-libs/uikit)
 
-BloodySwap UIkit is a set of React components and hooks used to build pages on BloodySwap's apps. It also contains a theme file for dark and light mode.
+Pancake UIkit is a set of React components and hooks used to build pages on Pancake's apps. It also contains a theme file for dark and light mode.
 
 ## Install
 
@@ -12,7 +12,7 @@ BloodySwap UIkit is a set of React components and hooks used to build pages on B
 
 ### Theme
 
-Before using BloodySwap UIkit, you need to provide the theme file to styled-component.
+Before using Pancake UIkit, you need to provide the theme file to styled-component.
 
 ```
 import { ThemeProvider } from 'styled-components'
