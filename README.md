@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/npm/v/@pancakeswap-libs/uikit)](https://www.npmjs.com/package/@pancakeswap-libs/uikit) [![Size](https://img.shields.io/bundlephobia/min/@pancakeswap-libs/uikit)](https://www.npmjs.com/package/@pancakeswap-libs/uikit)
 
-FarmersOnly UIkit is a set of React components and hooks used to build pages on FarmersOnly's apps. It also contains a theme file for dark and light mode.
+FarmersOnly UIkit is a set of React components and hooks used to build pages on FarmersOnly's apps.
 
 ## Install
 
