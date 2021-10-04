@@ -38,11 +38,13 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu } = props;
   return (
+  <>
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} /> {/* XXXXX RUGDOC APEOCLOCK BADGE */}
-      <a target="_blank" rel="noreferrer" href="https://www.apeoclock.com/launch/farmersonly-farm-launch/"><img src="https://rugdoc.io/assets/2021/06/rugdoc-review-badge-with-glow.png" /></a>
+	  <a target="_blank" rel="noreferrer" href="https://rugdoc.io/project/farmersonly-2/"><img src="https://rugdoc.io/assets/2021/06/rugdoc-review-badge-with-glow.png" alt="rugdoc badge" /></a>
       <PanelFooter {...props} />
     </StyledPanel>
+	</>
   );
 };
 

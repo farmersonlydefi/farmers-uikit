@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/farmersonlydefi/farmers-uikit",
+  "repository": "https://github.com/farmersonlydefi/farmers-uikit-v3",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",

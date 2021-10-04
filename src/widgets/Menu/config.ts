@@ -119,8 +119,12 @@ export const socials = [
     icon: "TelegramIcon",
     items: [
       {
-        label: "Group",
-        href: "http://t.me/FarmersOnlyDeFi",
+        label: "English",
+        href: "http://t.me/FarmersOnly2",
+      },
+	  {
+        label: "Italiano",
+        href: "http://t.me/FarmersOnlyIta",
       },
 	  {
         label: "Announcements",
@@ -131,7 +135,7 @@ export const socials = [
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitterFarmersOnlyDeFiyswap",
+    href: "https://twitter.com/FarmersOnlyDeFi",
   },
   /* {
     label: "Reddit",

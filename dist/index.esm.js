@@ -2214,8 +2214,12 @@ var socials = [
     icon: "TelegramIcon",
     items: [
       {
-        label: "Group",
-        href: "http://t.me/FarmersOnlyDeFi",
+        label: "English",
+        href: "http://t.me/FarmersOnly2",
+      },
+	  {
+        label: "Italiano",
+        href: "http://t.me/FarmersOnlyIta",
       },
 	  {
         label: "Announcements",
@@ -2355,6 +2359,7 @@ var PanelFooter = function (_a) {
                 React.createElement(Icon$l, null))));
     }
     return (React.createElement(Container$4, null,
+		
         React.createElement(SocialEntry, null,
             cakePriceUsd ? (React.createElement(PriceLink, { href: priceLink, target: "_blank" },
                 React.createElement(Icon$v, { width: "24px", mr: "8px" }),
