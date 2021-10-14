@@ -17,7 +17,7 @@ export const brandColors = {
 export const lightColors: Colors = {
   ...baseColors,
   ...brandColors,
-  background: "#17191d",
+  background: "#fb2141",
   backgroundDisabled: "#E9EAEB",
   contrast: "#191326",
   invertedContrast: "#FFFFFF",
@@ -37,7 +37,7 @@ export const darkColors: Colors = {
   ...baseColors,
   ...brandColors,
   secondary: "#51c4d3",
-  background: "#17191d",
+  background: "#fb2141",
   backgroundDisabled: "#E9EAEB",
   contrast: "#191326",
   invertedContrast: "#191326",
