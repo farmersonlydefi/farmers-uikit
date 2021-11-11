@@ -23,8 +23,8 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
       {account}
     </Text>
     <Flex mb="32px">
-    <LinkExternal small href={`https://cchain.explorer.avax.network/address/${account}`} mr="16px">
-        View on Avax Explorer
+    <LinkExternal small href={`https://snowtrace.io/address/${account}`} mr="16px">
+        View on the Snowtrace
       </LinkExternal>
       <CopyToClipboard toCopy={account}>Copy Address</CopyToClipboard>
     </Flex>
